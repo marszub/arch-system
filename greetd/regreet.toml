@@ -1,0 +1,12 @@
+[background]
+
+# path = "/usr/share/backgrounds/dont-starve.jpg"
+path = "/etc/greetd/greetd-background.jpg"
+fit = "Contain"
+
+[GTK]
+application_prefer_dark_theme = true
+
+[commands]
+reboot = [ "systemctl", "reboot" ]
+poweroff = [ "systemctl", "poweroff" ]
