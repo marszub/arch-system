@@ -1,0 +1,14 @@
+# save = live -> repo (pull), install = repo -> live (push)
+# Source me:  . ~/arch-system/scripts/aliases
+# The repo location is derived from this file, so it works from any clone path.
+repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+
+alias save="$repo_root/scripts/save.sh"
+alias save-check="$repo_root/scripts/save.sh --check"
+alias install="$repo_root/scripts/install.sh"
+alias install-check="$repo_root/scripts/install.sh --check"
+alias bootstrap="$repo_root/scripts/bootstrap.sh"
+
+# opencode: always start in the repo so the AGENTS.md instructions are loaded.
+# The alias name equals the command, which bash does not re-expand (no recursion).
+alias opencode="opencode \"$repo_root\""

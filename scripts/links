@@ -1,0 +1,39 @@
+# Single source of truth for the arch-system <-> live mapping.
+#
+# Format (whitespace separated):
+#   <repo path>  <live path>  <owner>
+#
+# <live path> is relative to $HOME for owner=home, absolute for owner=root.
+# Lines starting with '#' are ignored.
+#
+# Directories = recursive mirror, files = single copy.
+# Exec bits travel with the files (rsync -a). No mode column.
+#
+# Both scripts/save.sh (pull) and scripts/install.sh (push) read this file.
+
+## ~/.config app dirs (fully mirrored)
+desktop/hypr                .config/hypr                home
+desktop/waybar              .config/waybar              home
+desktop/fontconfig          .config/fontconfig          home
+desktop/nwg-look            .config/nwg-look            home
+desktop/xsettingsd          .config/xsettingsd          home
+desktop/xdg-desktop-portal  .config/xdg-desktop-portal  home
+desktop/fastfetch           .config/fastfetch           home
+
+## single files (live layout differs)
+desktop/gtk/gtk-3.0/settings.ini  .config/gtk-3.0/settings.ini  home
+desktop/gtk/gtk-4.0/settings.ini  .config/gtk-4.0/settings.ini  home
+desktop/qt/qt5ct.conf             .config/qt5ct/qt5ct.conf      home
+desktop/qt/qt6ct.conf             .config/qt6ct/qt6ct.conf      home
+
+## root-owned /etc (tracked files only, never whole-dir)
+greetd/config.toml   /etc/greetd/config.toml   root
+greetd/hyprland.conf /etc/greetd/hyprland.conf root
+greetd/regreet.toml  /etc/greetd/regreet.toml  root
+etc/pacman.conf      /etc/pacman.conf          root
+etc/mkinitcpio.conf  /etc/mkinitcpio.conf      root
+etc/locale.conf      /etc/locale.conf          root
+etc/vconsole.conf    /etc/vconsole.conf        root
+etc/hostname         /etc/hostname             root
+etc/hosts            /etc/hosts                root
+etc/default/grub     /etc/default/grub         root

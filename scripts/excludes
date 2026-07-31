@@ -1,0 +1,7 @@
+# Patterns are relative to each synced root (rsync runs per app-dir).
+# Applied to transfers and to the skipped-deletion report alike.
+
+audio/current
+audio/state
+audio/mode
+audio/manual
