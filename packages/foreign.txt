@@ -1,0 +1,1 @@
+steamcmd latest-6
