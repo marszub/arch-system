@@ -28,7 +28,7 @@ desktop/qt/qt6ct.conf             .config/qt6ct/qt6ct.conf      home
 
 ## root-owned /etc (tracked files only, never whole-dir)
 greetd/config.toml   /etc/greetd/config.toml   root
-greetd/hyprland.conf /etc/greetd/hyprland.conf root
+greetd/hyprland.lua  /etc/greetd/hyprland.lua  root
 greetd/regreet.toml  /etc/greetd/regreet.toml  root
 etc/pacman.conf      /etc/pacman.conf          root
 etc/mkinitcpio.conf  /etc/mkinitcpio.conf      root
