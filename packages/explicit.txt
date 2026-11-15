@@ -33,6 +33,7 @@ libnotify
 noto-fonts-emoji
 otf-hermit-nerd
 pipewire-pulse
+wireplumber
 networkmanager
 bluez
 bluez-utils
