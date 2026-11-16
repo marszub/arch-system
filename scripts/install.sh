@@ -48,7 +48,8 @@ copy_file() {
   else
     if [[ "$owner" == root ]]; then
       sudo mkdir -p "$(dirname -- "$dst")"
-      sudo rsync -a "${exclude_args[@]}" "$src" "$dst"
+      # Keep root-owned targets root:root; the repo files belong to the user.
+      sudo rsync -rlptD --chown=root:root "${exclude_args[@]}" "$src" "$dst"
     else
       mkdir -p "$(dirname -- "$dst")"
       rsync -a "${exclude_args[@]}" "$src" "$dst"
