@@ -14,6 +14,16 @@ case "$PROFILE" in
     IFS='|' read -r OUT IN < <(
       ~/.config/hypr/scripts/audio-get.sh "bluez_output" "razer_kiyo"
     )
+    # Auto-heal: missing BT sink is usually a BlueZ state (idle/stale/off),
+    # not a script bug. bt-audio-fix.sh diagnoses, reconnects when it can,
+    # and notifies the exact manual steps otherwise; then we retry once.
+    if [ -z "$OUT" ]; then
+      ~/.config/hypr/scripts/bt-audio-fix.sh
+      IFS='|' read -r OUT IN < <(
+        ~/.config/hypr/scripts/audio-get.sh "bluez_output" "razer_kiyo"
+      )
+      BT_FIX_RAN=1
+    fi
     ;;
 
   speakers)
@@ -25,7 +35,8 @@ case "$PROFILE" in
 esac
 
 if [ -z "$OUT" ] || [ -z "$IN" ]; then
-  notify-send -t 2000 "Audio" "Device missing: OUT=$OUT IN=$IN"
+  # bt-audio-fix.sh already notified the specific cause; don't double-notify.
+  [ "${BT_FIX_RAN:-0}" = "1" ] || notify-send -t 2000 "Audio" "Device missing: OUT=$OUT IN=$IN"
   exit 1
 fi
 
