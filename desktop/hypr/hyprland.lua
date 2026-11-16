@@ -249,7 +249,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exit())
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.config/rofi/power-menu.sh"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SUPER_L", hl.dsp.exec_cmd(menu))

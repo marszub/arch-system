@@ -16,6 +16,7 @@ desktop/hypr                .config/hypr                home
 desktop/waybar              .config/waybar              home
 desktop/fontconfig          .config/fontconfig          home
 desktop/nwg-look            .config/nwg-look            home
+desktop/rofi                .config/rofi                home
 desktop/xsettingsd          .config/xsettingsd          home
 desktop/xdg-desktop-portal  .config/xdg-desktop-portal  home
 desktop/fastfetch           .config/fastfetch           home

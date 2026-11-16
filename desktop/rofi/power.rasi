@@ -1,0 +1,65 @@
+* {
+    bg0:    #1a1b26;
+    bg1:    #292e42;
+    fg0:    #c0caf5;
+    muted:  #565f89;
+    accent: #6f8ac9;
+    font:   "Hurmit Nerd Font 14";
+
+    background-color: transparent;
+    text-color:       @fg0;
+}
+
+window {
+    location:         center;
+    anchor:           center;
+    width:            14%;
+    border-radius:    14px;
+    border:           1px solid;
+    border-color:     @muted;
+    background-color: @bg0;
+    padding:          6px;
+    margin:           0px;
+    children:         [ mainbox ];
+}
+
+mainbox {
+    orientation: vertical;
+    spacing:     8px;
+    padding:     0px;
+    children:    [ listview ];
+}
+
+listview {
+    layout:        vertical;
+    columns:       1;
+    lines:         3;
+    spacing:       8px;
+    scrollbar:     false;
+    padding:       0px;
+}
+
+element {
+    border-radius:    10px;
+    padding:          14px 22px;
+    background-color: @bg1;
+    border:           1px;
+    border-color:     rgba(0, 0, 0, 0.0);
+    text-color:       @fg0;
+}
+
+element selected {
+    background-color: @bg1;
+    border-color:     #b5e8e0;
+    text-color:       @fg0;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+}
+
+element-icon {
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+}

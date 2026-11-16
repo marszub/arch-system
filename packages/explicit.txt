@@ -24,6 +24,7 @@ swaync
 kitty
 dolphin
 nwg-look
+rofi
 libadwaita
 qt5-wayland
 qt5ct

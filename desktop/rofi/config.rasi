@@ -1,0 +1,6 @@
+/* rofi global configuration */
+configuration {
+  show-icons: true;
+  icon-theme: "hicolor";
+  drun-display-format: "{name}";
+}
