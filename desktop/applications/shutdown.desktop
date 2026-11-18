@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Shutdown
+GenericName=Power off
+Comment=Shut down the system
+Exec=systemctl -i poweroff
+Icon=arch-sys-shutdown
+Terminal=false
+Categories=System;
+StartupNotify=false

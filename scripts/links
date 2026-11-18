@@ -28,6 +28,15 @@ desktop/gtk/gtk-4.0/settings.ini  .config/gtk-4.0/settings.ini  home
 desktop/qt/qt5ct.conf             .config/qt5ct/qt5ct.conf      home
 desktop/qt/qt6ct.conf             .config/qt6ct/qt6ct.conf      home
 
+## user .desktop entries (shown in the app launcher / drun)
+desktop/applications/shutdown.desktop  .local/share/applications/shutdown.desktop  home
+desktop/applications/reboot.desktop    .local/share/applications/reboot.desktop    home
+
+## custom icons for the launcher: must live in the SYSTEM hicolor theme
+## (hyprlauncher scans /usr/share/icons, not the per-user icon dirs)
+desktop/icons-hicolor/arch-sys-shutdown.svg  /usr/share/icons/hicolor/scalable/apps/arch-sys-shutdown.svg  root
+desktop/icons-hicolor/arch-sys-reboot.svg    /usr/share/icons/hicolor/scalable/apps/arch-sys-reboot.svg    root
+
 ## root-owned /etc (tracked files only, never whole-dir)
 greetd/config.toml   /etc/greetd/config.toml   root
 greetd/hyprland.lua  /etc/greetd/hyprland.lua  root
