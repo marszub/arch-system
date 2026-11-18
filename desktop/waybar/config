@@ -1,105 +1,87 @@
 {
 	"layer": "top",
-	"modules-left": ["user","cpu","memory","tray", "hyprland/window"],
+	"modules-left": ["user", "hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["network", "bluetooth", "pulseaudio", "battery", "custom/notifications", "custom/power"],
-	
+	"modules-right": ["network", "bluetooth", "pulseaudio", "tray", "custom/notifications", "custom/power"],
+
+	"hyprland/workspaces": {
+		"format": "{id}",
+		"sort-by-number": true,
+		"on-click": "activate",
+		"on-scroll-up": "prev",
+		"on-scroll-down": "next"
+	},
+
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
-		"format-muted": "{icon} {volume}%",
-		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-muted": "{icon} muted",
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
 		"format-icons": {
 			"default": ["", "", ""]
 		}
 	},
 
-    "river/tags": {
-		"num-tags": 6
-    },
 	"network": {
 		"tooltip": false,
-		"format-wifi": "  {essid}",
-		"format-ethernet": "󰈀 {ifname} | {bandwidthUpBytes} {bandwidthDownBytes}"
+		"format-wifi": "󰤨 {essid}",
+		"format-ethernet": "󰈀 {ifname}",
+		"format-disconnected": "󰤭",
+	"on-click": "kitty --class floating -e nmtui"
 	},
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
-        "on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5"
+
+	"tray": {
+		"icon-size": 16,
+		"spacing": 8
 	},
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
-    },
-	"tray":{
-		"icon-size":18,
-		"spacing": 10
+
+	"clock": {
+		"format": "{:%H:%M %d.%m.%y}",
+		"tooltip-format": "{:%A %d %B %Y}"
 	},
-    "clock": {
-        "format": " {:%H:%M %m/%d/%y}"
-    },
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-    "bluetooth": {
-        "format": " {status} | {device_alias}",
-        "on-click": "blueman-manager"
-    },
-    "custom/media": {
-        "interval": 30,
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 20,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause"
-    },
-    "custom/launcher":{
-        "format": "∞",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
-    "custom/power":{
-        "format": "",
-        "on-click": "nwg-bar"
-    },
-    "user": {
-        "format": "{user}",
-        "interval": 60,
-        "height": 30,
-        "width": 30,
-        "icon": true,
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
-    "custom/notifications": {
-        "format": ""
-    },
-    "hyprland/window": {
-        "max-length": 200,
-        "separate-outputs": true
-    },
-    
+
+	"cpu": {
+		"interval": 15,
+		"format": "󰍛 {}%"
+	},
+
+	"memory": {
+		"interval": 30,
+		"format": "󰑭 {}%"
+	},
+
+	"bluetooth": {
+		"format": "{status}",
+		"format-on": "󰂯 {device_alias}",
+		"format-off": "󰂲",
+		"format-disabled": "󰂲",
+		"on-click": "blueman-manager"
+	},
+
+	"custom/power": {
+		"format": "󰐥",
+		"on-click": "$HOME/.config/rofi/power-menu.sh"
+	},
+
+	"user": {
+		"format": " {user}",
+		"interval": 60,
+		"icon": false,
+		"on-click": "rofi -show drun",
+		"on-click-right": "killall rofi"
+	},
+
+	"custom/notifications": {
+		"format": "󰂚 {text}",
+		"return-type": "json",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t",
+		"on-click-right": "swaync-client -C"
+	},
+
+	"hyprland/window": {
+		"max-length": 200,
+		"separate-outputs": true
+	}
 }
