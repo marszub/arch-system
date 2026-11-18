@@ -20,6 +20,7 @@ desktop/rofi                .config/rofi                home
 desktop/xsettingsd          .config/xsettingsd          home
 desktop/xdg-desktop-portal  .config/xdg-desktop-portal  home
 desktop/fastfetch           .config/fastfetch           home
+desktop/swaync              .config/swaync              home
 
 ## single files (live layout differs)
 desktop/gtk/gtk-3.0/settings.ini  .config/gtk-3.0/settings.ini  home
